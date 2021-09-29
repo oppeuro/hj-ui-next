@@ -1,0 +1,25 @@
+.hj-datepicker-year-container {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  margin-top: 10px;
+  width: 310px;
+  height: 272px;
+  overflow: hidden;
+}
+
+.hj-datepicker-year {
+  height: inherit;
+  line-height: 35px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  position: relative;
+  -webkit-overflow-scrolling: touch;
+}
+
+.hj-datepicker-year-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 100%;
+}

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  
+</head>
+<body>
+  
+  <div style="  background-color: blue;">
+    <div id='div1' style=" height: 50px; width: 50px; top: 0; left: 0; background-color: red;"></div>
+    <div id='div2' style=" position: relative; height: 50px; width: 50px; top: 0; left: 10px; background-color: yellow;"></div>
+  </div>
+
+  <button onclick="handleClick()">CLICK</button>
+  <script>
+    let id = document.getElementById('div2')
+    let x = id.getBoundingClientRect().x
+    let count = 0;
+    function handleClick() {
+      id.style.left = '20px'
+      console.log(id.getBoundingClientRect().x)
+      for (let i = 0; i < 10000000000; i += 1) {}
+      id.style.left = '10px'
+      console.log(id.getBoundingClientRect().x)
+    }
+    function isChange() {
+      requestAnimationFrame(() => {
+        console.log(count++)
+        const newX = id.getBoundingClientRect().x
+        if (newX != x) {
+          console.log(newX, '--->' , x)
+        }
+        isChange()
+      })
+    }
+    isChange()
+  </script>
+</body>
+</html>

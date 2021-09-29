@@ -1,0 +1,44 @@
+@import '@/style/import.scss';
+
+.hj-year-button {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  background: none;
+  cursor: pointer;
+  text-decoration: none;
+  margin: 0 auto;
+  padding: 0;
+  font-size: 14px;
+  text-align: center;
+  line-height: inherit;
+  color: currentColor;
+  border: none;
+  height: 36px;
+  &:hover {
+    background-color: rgba($textColor, 0.1);
+  }
+  &.selected {
+    height: 40px;
+    margin: 10px 0;
+  }
+}
+
+.hj-year-button-text {
+  align-items: center;
+  color: $textColor;
+  font-size: 16px;
+  line-height: 1.1;
+  font-weight: 400;
+  position: relative;
+  .hj-year-button.selected & {
+    color: currentColor;
+    font-size: 26px;
+    font-weight: 500;
+  }
+  .hj-year-button:hover & {
+    color: currentColor;
+  }
+}

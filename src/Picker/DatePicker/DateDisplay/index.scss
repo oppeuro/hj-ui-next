@@ -1,0 +1,136 @@
+@import '@/style/import.scss';
+
+.hj-picker-display {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  height: 100px;
+  background-color: currentColor;
+  border-top-left-radius: 2px;
+  border-top-right-radius: 2px;
+  border-bottom-left-radius: 0;
+  padding-left: 16px;
+  padding-right: 16px;
+  .hj-picker-landspace & {
+    width: 165px;
+    height: auto;
+    padding-top: 16px;
+    border-top-right-radius: 0;
+    border-bottom-left-radius: 2px;
+    position: relative;
+  }
+}
+
+.hj-date-display {
+  font-weight: 700;
+}
+
+@media (min-width: 600px) {
+  .hj-picker-display {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+  .hj-picker-landspace .hj-picker-display {
+    padding-top: 24px;
+  }
+}
+
+.hj-date-display-year {
+  position: relative;
+  overflow: hidden;
+  margin: 0;
+  width: 100%;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 16px;
+  height: 16px;
+  opacity: 0.7;
+  transition: all 0.45s $easeOutFunction;
+  color: $alternateTextColor;
+  .hj-date-dispaly.selected-year & {
+    opacity: 1;
+  }
+}
+
+.hj-date-display-monthday {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  font-size: 36px;
+  line-height: 36px;
+  height: 38px;
+  transition: all 0.45 $easeOutFunction;
+  width: 100%;
+  font-weight: 500;
+  color: $alternateTextColor;
+  .hj-date-dispaly.selected-year & {
+    opacity: 0.7;
+  }
+  .hj-picker-landspace {
+    height: 100%;
+  }
+}
+// position必须是absolute
+.hj-date-display-slideIn-wrapper {
+  // position: absolute;
+  // position: relative;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+}
+// 选择日期图标样式变化
+.hj-date-display-year-title {
+  cursor: pointer;
+  .hj-date-display-year.disabled & {
+    cursor: not-allowed;
+  }
+  .hj-date-display.selected-year {
+    cursor: default;
+  }
+}
+
+.hj-date-display-monthday-title {
+  cursor: default;
+  width: 100%;
+  display: block;
+  .hj-date-display.selected-year {
+    cursor: pointer;
+  }
+}
+
+// 日期显示淡入淡出效果
+.hj-date-display-next-enter-active,
+.hj-date-display-next-leave-active,
+.hj-date-display-prev-enter-active,
+.hj-date-display-prev-leave-active {
+  transition: transform 10450ms $easeOutFunction,
+    opacity 10450ms $easeOutFunction;
+  backface-visibility: hidden;
+}
+
+.hj-date-display-next-leave-from .hj-date-display-next-enter-from {
+  // transform: translate3d(0, 100%, 0);
+  opacity: 0;
+}
+
+.hj-date-display-next-enter-to {
+  transform: translate3d(0, -100%, 0);
+  // opacity: 1;
+}
+
+.hj-date-display-next-leave-active {
+  transform: translate3d(0, -100%, 0);
+  // opacity: 1;
+}
+
+// .hj-date-display-prev-enter-from {
+//   transform: translate3d(0, 100%, 0);
+//   opacity: 0;
+// }
+
+// .hj-date-display-prev-leave-from {
+//   transform: translate3d(0, -100%, 0);
+//   opacity: 0;
+// }

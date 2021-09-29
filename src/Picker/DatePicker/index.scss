@@ -1,0 +1,14 @@
+@import '@/style/import.scss';
+
+.hj-picker {
+  color: $primaryColor;
+  background-color: $dialogBackgroundColor;
+  user-select: none;
+  width: 310px;
+}
+.hj-datepicker {
+}
+.hj-picker-container {
+  padding-bottom: 8px;
+  flex: 1;
+}
