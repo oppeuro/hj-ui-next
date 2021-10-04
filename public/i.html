@@ -10,33 +10,30 @@
 <body>
   
   <div style="  background-color: blue;">
-    <div id='div1' style=" height: 50px; width: 50px; top: 0; left: 0; background-color: red;"></div>
-    <div id='div2' style=" position: relative; height: 50px; width: 50px; top: 0; left: 10px; background-color: yellow;"></div>
+    <div id='div1' style=" transition: all 10s; height: auto; width: 50px; top: 0; left: 0; background-color: red;">
+      <div style="height: 100px;"></div>
+    </div>
   </div>
 
   <button onclick="handleClick()">CLICK</button>
   <script>
-    let id = document.getElementById('div2')
-    let x = id.getBoundingClientRect().x
-    let count = 0;
+    let id = document.getElementById('div1')
+    
     function handleClick() {
-      id.style.left = '20px'
-      console.log(id.getBoundingClientRect().x)
-      for (let i = 0; i < 10000000000; i += 1) {}
-      id.style.left = '10px'
-      console.log(id.getBoundingClientRect().x)
+      const e = document.createElement('div')
+      e.style.height = '200px'
+      e.style.width = '200px'
+      e.style.backgroundColor = 'red'
+      document.body.appendChild(e);
+      // setTimeout(() => {
+      //   document.body.removeChild(e)
+      // })
+      document.body.removeChild(e)
+      // id.style.display = 'none'
+      // console.log(getComputedStyle(id).height)
+      // id.style.display = 'block'
+      // console.log(getComputedStyle(id).height)
     }
-    function isChange() {
-      requestAnimationFrame(() => {
-        console.log(count++)
-        const newX = id.getBoundingClientRect().x
-        if (newX != x) {
-          console.log(newX, '--->' , x)
-        }
-        isChange()
-      })
-    }
-    isChange()
   </script>
 </body>
 </html>
